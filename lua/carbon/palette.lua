@@ -56,7 +56,7 @@ M.carbon = {
   gutter = "#172030",         -- gutter, sign background
   line_nr = "#465063",        -- line number
   cursor_line_fg = "#A4A3A3", -- caret line
-  cursor_line_bg = "#1E2A3E", -- caret line background
+  cursor_line_bg = "#2D3F55", -- caret line background
 
   -- Diff colors
   diff_add_bg = "#082F3B",    -- diff add background
@@ -76,7 +76,8 @@ M.carbon = {
   warning = "#FFAE8F",        -- warning (using html_tag color)
   info = "#73A7A7",           -- info (using string color)
   hint = "#9876AA",           -- hint (using variable color)
-  link = "#02858E",           -- links
+  link = "#5AC4C4",           -- links (brightened for visibility)
+  parameter = "#F2C4B3",      -- function parameters (using number color)
 
   -- Git/VCS
   git_add = "#57A464",
@@ -84,14 +85,14 @@ M.carbon = {
   git_delete = "#DB7090",
 
   -- Selection/Visual
-  selection = "#1E2A3E",
+  selection = "#2D3F55",
   search = "#F2C4B3",
 
   -- Popup menu
   pmenu_bg = "#1E2A3E",
   pmenu_fg = "#C9CCCD",
-  pmenu_sel_bg = "#172030",
-  pmenu_sel_fg = "#9876AA",
+  pmenu_sel_bg = "#2D3F55",
+  pmenu_sel_fg = "#F9B5AC",
 
   -- Borders and separators
   border = "#465063",

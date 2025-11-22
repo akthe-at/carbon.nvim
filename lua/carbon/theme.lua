@@ -629,7 +629,7 @@ function M.setup(colors, config)
     -- Blink.cmp
     BlinkCmpMenu = { fg = colors.fg, bg = colors.cursor_line_bg },
     BlinkCmpMenuBorder = { fg = colors.border, bg = colors.cursor_line_bg },
-    BlinkCmpMenuSelection = { bg = colors.selection },
+    BlinkCmpMenuSelection = { bg = colors.selection, fg = colors.pmenu_sel_fg },
     BlinkCmpScrollBarThumb = { bg = colors.border },
     BlinkCmpScrollBarGutter = { bg = colors.cursor_line_bg },
     BlinkCmpLabel = { fg = colors.fg },

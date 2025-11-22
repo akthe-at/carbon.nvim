@@ -2,31 +2,31 @@
 # https://github.com/akthe-at/carbon.nvim
 
 background = 172030
-foreground = c9cccd
+foreground = bac8cb
 
 # Cursor
-cursor-color = c9cccd
+cursor-color = bac8cb
 
 # Selection
-selection-background = 2d3f55
-selection-foreground = c9cccd
+selection-background = 0a677a
+selection-foreground = fdf6e3
 
 # Normal colors
 palette = 0=#172030
 palette = 1=#db6e89
 palette = 2=#57a464
 palette = 3=#ffae8f
-palette = 4=#43698d
+palette = 4=#0a677a
 palette = 5=#b87ea2
-palette = 6=#73a7a7
-palette = 7=#c9cccd
+palette = 6=#02858e
+palette = 7=#bac8cb
 
 # Bright colors
-palette = 8=#5d6976
+palette = 8=#586e75
 palette = 9=#ff4262
 palette = 10=#a5c25c
-palette = 11=#d0d6b5
-palette = 12=#73a7a7
+palette = 11=#e1e797
+palette = 12=#0c9294
 palette = 13=#9876aa
-palette = 14=#5ac4c4
-palette = 15=#c9cccd
+palette = 14=#02858e
+palette = 15=#bac8cb

@@ -242,6 +242,17 @@ function M.setup(colors, config)
     ["@variable.parameter"] = { fg = colors.parameter },
     ["@variable.parameter.builtin"] = { fg = colors.parameter },
 
+    -- Language-specific Treesitter overrides
+    ["@constructor.lua"] = { fg = colors.class },
+    ["@constructor.tsx"] = { fg = colors.info },
+    ["@constructor.javascript"] = { fg = colors.info },
+    ["@tag.tsx"] = { fg = colors.keyword },
+    ["@tag.javascript"] = { fg = colors.keyword },
+    ["@tag.delimiter.tsx"] = { fg = colors.comment },
+    ["@punctuation.special.markdown"] = { fg = colors.html_tag },
+    ["@markup.list.markdown"] = { fg = colors.html_tag, bold = true },
+    ["@markup.raw.markdown_inline"] = { fg = colors.info, bg = colors.cursor_line_bg },
+
     -- LSP Semantic Tokens
     ["@lsp.type.boolean"] = { link = "@boolean" },
     ["@lsp.type.builtinType"] = { link = "@type.builtin" },
@@ -257,6 +268,7 @@ function M.setup(colors, config)
     ["@lsp.type.keyword"] = { link = "@keyword" },
     ["@lsp.type.lifetime"] = { link = "@keyword.storage" },
     ["@lsp.type.namespace"] = { link = "@module" },
+    ["@lsp.type.namespace.python"] = { link = "@variable" },
     ["@lsp.type.number"] = { link = "@number" },
     ["@lsp.type.operator"] = { link = "@operator" },
     ["@lsp.type.parameter"] = { link = "@variable.parameter" },
@@ -278,8 +290,8 @@ function M.setup(colors, config)
     ["@lsp.typemod.operator.injected"] = { link = "@operator" },
     ["@lsp.typemod.string.injected"] = { link = "@string" },
     ["@lsp.typemod.struct.defaultLibrary"] = { link = "@type.builtin" },
-    ["@lsp.typemod.type.defaultLibrary"] = { fg = colors.class },
-    ["@lsp.typemod.typeAlias.defaultLibrary"] = { fg = colors.class },
+    ["@lsp.typemod.type.defaultLibrary"] = { fg = colors.info },
+    ["@lsp.typemod.typeAlias.defaultLibrary"] = { fg = colors.info },
     ["@lsp.typemod.variable.callable"] = { link = "@function" },
     ["@lsp.typemod.variable.defaultLibrary"] = { link = "@variable.builtin" },
     ["@lsp.typemod.variable.injected"] = { link = "@variable" },

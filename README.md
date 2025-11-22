@@ -11,6 +11,7 @@ This is a rewrite of [michaeldyrynda/carbon.vim](https://github.com/michaeldyryn
 ## Features
 
 - Modern Lua-based implementation for Neovim
+- **Dark and Light variants** (carbon, carbon-day)
 - Treesitter support
 - LSP semantic highlighting
 - Plugin integrations (Telescope, NvimTree, Neo-tree, WhichKey, Cmp, and more)
@@ -82,6 +83,7 @@ Carbon comes with sensible defaults, but you can customize it:
 
 ```lua
 require("carbon").setup({
+  style = "carbon",         -- "carbon" (dark) or "carbon_day" (light)
   transparent = false,      -- Enable transparent background
   terminal_colors = true,   -- Enable terminal colors
   dim_inactive = false,     -- Dim inactive windows
@@ -104,6 +106,31 @@ require("carbon").setup({
   end,
 })
 
+vim.cmd.colorscheme("carbon")
+```
+
+## Theme Variants
+
+Carbon includes both dark and light variants:
+
+### Dark Theme (default)
+
+```lua
+vim.cmd.colorscheme("carbon")
+```
+
+### Light Theme
+
+```lua
+vim.cmd.colorscheme("carbon-day")
+```
+
+Or set it via configuration:
+
+```lua
+require("carbon").setup({
+  style = "carbon_day",
+})
 vim.cmd.colorscheme("carbon")
 ```
 
@@ -215,6 +242,7 @@ Carbon includes highlight groups for popular plugins:
 
 - Original [Carbon theme](https://plugins.jetbrains.com/plugin/12280-carbon) by [Luis Fernando Jiménez](https://github.com/luisfer0793)
 - Original Vim port by [Michael Dyrynda](https://github.com/michaeldyrynda/carbon.vim)
+- Theme structure inspired by [tokyonight.nvim](https://github.com/folke/tokyonight.nvim) by [Folke Lemaitre](https://github.com/folke)
 
 ## License
 

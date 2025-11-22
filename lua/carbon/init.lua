@@ -16,12 +16,21 @@ function M.load(opts)
   end
 
   vim.o.termguicolors = true
-  vim.g.colors_name = "carbon"
-  vim.o.background = "dark"
 
   local config = M.config.extend(opts)
+  local style = config.style or "carbon"
+
+  -- Set colorscheme name and background based on style
+  if style == "carbon_day" then
+    vim.g.colors_name = "carbon-day"
+    vim.o.background = "light"
+  else
+    vim.g.colors_name = "carbon"
+    vim.o.background = "dark"
+  end
+
   local palette = require("carbon.palette")
-  local colors = palette.setup({ palette = config.palette })
+  local colors = palette.setup({ style = style, palette = config.palette })
 
   -- Allow user to customize colors
   config.on_colors(colors)
@@ -40,6 +49,20 @@ function M.load(opts)
   -- Set terminal colors
   if config.terminal_colors then
     M.terminal(colors)
+  end
+
+  -- Auto-switch lualine theme if lualine is loaded (only after VimEnter)
+  if vim.v.vim_did_enter == 1 then
+    local lualine_ok, lualine = pcall(require, "lualine")
+    if lualine_ok then
+      local lualine_theme = style == "carbon_day" and "carbon-day" or "carbon"
+      local lualine_config = require("lualine.config")
+      local config_opts = lualine_config.get_config()
+      if config_opts and config_opts.options then
+        config_opts.options.theme = lualine_theme
+        lualine.setup(config_opts)
+      end
+    end
   end
 end
 

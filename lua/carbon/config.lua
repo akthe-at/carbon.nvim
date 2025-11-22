@@ -1,6 +1,7 @@
 local M = {}
 
 ---@class CarbonConfig
+---@field style string Theme style: "carbon" (dark) or "carbon_day" (light)
 ---@field transparent boolean Enable transparent background
 ---@field terminal_colors boolean Enable terminal colors
 ---@field dim_inactive boolean Dim inactive windows
@@ -16,6 +17,7 @@ local M = {}
 
 ---@type CarbonConfig
 M.defaults = {
+  style = "carbon",
   transparent = false,
   terminal_colors = true,
   dim_inactive = false,

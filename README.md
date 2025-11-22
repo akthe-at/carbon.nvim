@@ -15,6 +15,7 @@ This is a rewrite of [michaeldyrynda/carbon.vim](https://github.com/michaeldyryn
 - LSP semantic highlighting
 - Plugin integrations (Telescope, NvimTree, Neo-tree, WhichKey, Cmp, and more)
 - Lualine theme included
+- Ghostty terminal theme included
 - Customizable colors and highlight groups
 - Terminal colors support
 
@@ -116,6 +117,30 @@ require("lualine").setup({
     theme = "carbon",
   },
 })
+```
+
+## Ghostty Terminal Theme
+
+Carbon includes theme files for the [Ghostty](https://ghostty.org/) terminal emulator.
+
+### Installation
+
+Copy the theme file to your Ghostty config directory:
+
+```bash
+# For dark theme
+cp ~/.local/share/nvim/lazy/carbon.nvim/extras/ghostty/carbon ~/.config/ghostty/themes/
+
+# For light theme
+cp ~/.local/share/nvim/lazy/carbon.nvim/extras/ghostty/carbon-day ~/.config/ghostty/themes/
+```
+
+Then add to your Ghostty config (`~/.config/ghostty/config`):
+
+```
+theme = carbon
+# or
+theme = carbon-day
 ```
 
 ## Plugin Support

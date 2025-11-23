@@ -1,7 +1,7 @@
 # Carbon.nvim
 
 <p align="center">
-  <img src="/art/welcome.png" alt="Welcome to Carbon" />
+  <img src="/screenshots/lua.png" alt="Welcome to Carbon" />
 </p>
 
 A modern Lua-based Neovim colorscheme based on the [Carbon](https://plugins.jetbrains.com/plugin/12280-carbon) theme for IntelliJ IDEs by [Luis Fernando Jiménez](https://github.com/luisfer0793).
@@ -210,8 +210,8 @@ Carbon includes highlight groups for popular plugins:
 </p>
 
 <p align="center">
-  <img src="/screenshots/lua.png" alt="Lua Sample" />
-  <span>Lua</span>
+  <img src="/screenshots/lua_w_window.png" alt="Lua Sample, with picker shown" />
+  <span>Lua w/ a floating window</span>
 </p>
 
 <p align="center">

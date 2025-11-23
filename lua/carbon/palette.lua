@@ -37,7 +37,9 @@ M.carbon = {
 
 	-- Base colors
 	bg = "#172030",
+	bg_dark = "#0F1520",
 	fg = "#BAC8CB",
+	fg_dark = "#657778",
 	old_bg = "#082F3B",
 
 	-- Syntax colors
@@ -59,6 +61,7 @@ M.carbon = {
 	line_nr = "#586E75", -- line number (from disabledText)
 	cursor_line_fg = "#A4A3A3", -- caret line
 	cursor_line_bg = "#1E2A3E", -- caret line background (inactiveBackground)
+	cursor = "#BAC8CB", -- cursor block color
 
 	-- Diff colors
 	diff_add_bg = "#082F3B", -- diff add background
@@ -114,7 +117,9 @@ M.carbon_day = {
 
 	-- Base colors (warm paper/cream tint)
 	bg = "#F0E0D0",
+	bg_dark = "#E5D5C5",
 	fg = "#2E3440",
+	fg_dark = "#8A9199",
 
 	-- Syntax colors (darkened for light background)
 	keyword = "#C04D6B", -- keyword, operation
@@ -134,7 +139,8 @@ M.carbon_day = {
 	gutter = "#F0E0D0", -- gutter, sign background
 	line_nr = "#9BA3AF", -- line number
 	cursor_line_fg = "#2E3440", -- caret line
-	cursor_line_bg = "#D5C5B0", -- caret line background (stronger contrast)
+	cursor_line_bg = "#C5B5A0", -- caret line background (stronger contrast)
+	cursor = "#0A7285", -- cursor block color (teal accent)
 
 	-- Diff colors
 	diff_add_bg = "#D8F0D8", -- diff add background

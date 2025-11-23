@@ -9,7 +9,6 @@ local dark = {
 	yellow = "#E1E797",
 	cyan = "#02858E",
 	green = "#57A464",
-	orange = "#FFAE8F",
 	peach = "#FFAE8F",
 	magenta = "#B87EA2",
 	blue = "#0A677A",
@@ -46,7 +45,7 @@ function M.get_theme()
 			c = { fg = colors.fg, bg = colors.inactive },
 		},
 		visual = {
-			a = { fg = colors.bg, bg = colors.peach or colors.orange, gui = "bold" },
+			a = { fg = colors.bg, bg = colors.peach, gui = "bold" },
 			b = { fg = colors.fg, bg = colors.inactive },
 			c = { fg = colors.fg, bg = colors.inactive },
 		},

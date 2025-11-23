@@ -47,13 +47,13 @@ This is a rewrite of [michaeldyrynda/carbon.vim](https://github.com/michaeldyryn
 ### Using packer.nvim
 
 ```lua
-use {
-  "akthe-at/carbon.nvim",
-  config = function()
-    require("carbon").setup()
-    vim.cmd.colorscheme("carbon")
-  end
-}
+use({
+	"akthe-at/carbon.nvim",
+	config = function()
+		require("carbon").setup()
+		vim.cmd.colorscheme("carbon")
+	end,
+})
 ```
 
 ### Using vim-plug
@@ -83,27 +83,27 @@ Carbon comes with sensible defaults, but you can customize it:
 
 ```lua
 require("carbon").setup({
-  style = "carbon",         -- "carbon" (dark) or "carbon_day" (light)
-  transparent = false,      -- Enable transparent background
-  terminal_colors = true,   -- Enable terminal colors
-  dim_inactive = false,     -- Dim inactive windows
+	style = "carbon", -- "carbon" (dark) or "carbon_day" (light)
+	transparent = false, -- Enable transparent background
+	terminal_colors = true, -- Enable terminal colors
+	dim_inactive = false, -- Dim inactive windows
 
-  styles = {
-    comments = { italic = true },
-    keywords = {},
-    functions = {},
-    variables = {},
-  },
+	styles = {
+		comments = { italic = true },
+		keywords = {},
+		functions = {},
+		variables = {},
+	},
 
-  -- Override colors
-  on_colors = function(colors)
-    colors.bg = "#1a1a1a"
-  end,
+	-- Override colors
+	on_colors = function(colors)
+		colors.bg = "#1a1a1a"
+	end,
 
-  -- Override highlight groups
-  on_highlights = function(highlights, colors)
-    highlights.Function = { fg = colors.func, bold = true }
-  end,
+	-- Override highlight groups
+	on_highlights = function(highlights, colors)
+		highlights.Function = { fg = colors.func, bold = true }
+	end,
 })
 
 vim.cmd.colorscheme("carbon")
@@ -129,7 +129,7 @@ Or set it via configuration:
 
 ```lua
 require("carbon").setup({
-  style = "carbon_day",
+	style = "carbon_day",
 })
 vim.cmd.colorscheme("carbon")
 ```
@@ -140,9 +140,9 @@ Carbon includes a lualine theme that matches the colorscheme:
 
 ```lua
 require("lualine").setup({
-  options = {
-    theme = "carbon",
-  },
+	options = {
+		theme = "carbon",
+	},
 })
 ```
 
@@ -199,43 +199,33 @@ Carbon includes highlight groups for popular plugins:
 ## Screenshots
 
 <p align="center">
-  <img src="/screenshots/php.png" alt="PHP Sample" />
-  <span>PHP</span>
-</p>
-
-<p align="center">
-  <img src="/screenshots/blade.png" alt="HTML/Blade Sample" />
-  <span>HTML/Blade</span>
-</p>
-
-<p align="center">
-  <img src="/screenshots/css.png" alt="CSS Sample" />
-  <span>CSS</span>
-</p>
-
-<p align="center">
-  <img src="/screenshots/react.png" alt="React Sample" />
-  <span>React</span>
-</p>
-
-<p align="center">
-  <img src="/screenshots/vue.png" alt="Vue Sample" />
-  <span>Vue</span>
-</p>
-
-<p align="center">
   <img src="/screenshots/go.png" alt="Go Sample" />
   <span>Go</span>
 </p>
 
 <p align="center">
-  <img src="/screenshots/ruby.png" alt="Ruby Sample" />
-  <span>Ruby</span>
+  <img src="/screenshots/go_light.png" alt="Light Go Sample" />
+  <span>Go - Light Variant</span>
+</p>
+
+<p align="center">
+  <img src="/screenshots/lua.png" alt="Lua Sample" />
+  <span>Lua</span>
+</p>
+
+<p align="center">
+  <img src="/screenshots/lua_light.png" alt="Light Lua Sample" />
+  <span>Lua - Light Variant</span>
 </p>
 
 <p align="center">
   <img src="/screenshots/python.png" alt="Python Sample" />
   <span>Python</span>
+</p>
+
+<p align="center">
+  <img src="/screenshots/python_light.png" alt="Light Python Sample" />
+  <span>Python - Light Variant</span>
 </p>
 
 ## Credits

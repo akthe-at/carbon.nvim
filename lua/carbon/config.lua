@@ -14,6 +14,7 @@ local M = {}
 ---@field keywords table Style for keywords
 ---@field functions table Style for functions
 ---@field variables table Style for variables
+---@field properties table Style for properties
 
 ---@type CarbonConfig
 M.defaults = {
@@ -24,8 +25,9 @@ M.defaults = {
   styles = {
     comments = { italic = true },
     keywords = {},
-    functions = {},
+    functions = { bold = true },
     variables = {},
+    properties = { bold = true },
   },
   on_colors = function(colors) end,
   on_highlights = function(highlights, colors) end,

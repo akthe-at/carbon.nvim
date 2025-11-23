@@ -91,8 +91,9 @@ require("carbon").setup({
 	styles = {
 		comments = { italic = true },
 		keywords = {},
-		functions = {},
+		functions = { bold = true },
 		variables = {},
+		properties = { bold = true },
 	},
 
 	-- Override colors
@@ -102,7 +103,7 @@ require("carbon").setup({
 
 	-- Override highlight groups
 	on_highlights = function(highlights, colors)
-		highlights.Function = { fg = colors.func, bold = true }
+		highlights.Keyword = { fg = colors.keyword, italic = true }
 	end,
 })
 

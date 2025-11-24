@@ -223,7 +223,7 @@ function M.setup(colors, config)
     ["@number"] = { fg = colors.number },
     ["@number.float"] = { fg = colors.number },
     ["@operator"] = { fg = colors.info },
-    ["@property"] = vim.tbl_extend("force", { fg = colors.html_attr }, config.config.styles.properties),
+    ["@property"] = vim.tbl_extend("force", { fg = colors.html_attr }, styles.properties),
     ["@punctuation.bracket"] = { fg = colors.bracket or colors.fg },
     ["@punctuation.delimiter"] = { fg = colors.bracket or colors.fg },
     ["@punctuation.special"] = { fg = colors.info },

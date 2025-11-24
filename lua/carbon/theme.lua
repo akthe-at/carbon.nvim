@@ -3,6 +3,13 @@ local M = {}
 ---@param colors CarbonPalette
 ---@param config CarbonConfig
 function M.setup(colors, config)
+  local styles = config.styles or {}
+  styles.comments = styles.comments or { italic = true }
+  styles.keywords = styles.keywords or {}
+  styles.functions = styles.functions or { bold = true }
+  styles.variables = styles.variables or {}
+  styles.properties = styles.properties or { bold = true }
+
   local theme = {}
 
   theme.highlights = {
@@ -171,11 +178,11 @@ function M.setup(colors, config)
     ["@diff.minus"] = { fg = colors.git_delete },
     ["@diff.plus"] = { fg = colors.git_add },
     ["@function"] = vim.tbl_extend("force", { fg = colors.func }, config.styles.functions),
-    ["@function.builtin"] = vim.tbl_extend("force", { fg = colors.func }, config.styles.functions),
+    ["@function.builtin"] = vim.tbl_extend("force", { fg = colors.func }, styles.functions),
     ["@function.call"] = vim.tbl_extend("force", { fg = colors.func }, config.styles.functions),
     ["@function.macro"] = vim.tbl_extend("force", { fg = colors.func }, config.styles.functions),
     ["@function.method"] = vim.tbl_extend("force", { fg = colors.func }, config.styles.functions),
-    ["@function.method.call"] = vim.tbl_extend("force", { fg = colors.func }, config.styles.functions),
+    ["@function.method.call"] = vim.tbl_extend("force", { fg = colors.func }, styles.functions),
     ["@keyword"] = { fg = colors.keyword },
     ["@keyword.conditional"] = { fg = colors.keyword },
     ["@keyword.conditional.ternary"] = { fg = colors.keyword },
@@ -216,7 +223,7 @@ function M.setup(colors, config)
     ["@number"] = { fg = colors.number },
     ["@number.float"] = { fg = colors.number },
     ["@operator"] = { fg = colors.info },
-    ["@property"] = vim.tbl_extend("force", { fg = colors.html_attr }, config.styles.properties),
+    ["@property"] = vim.tbl_extend("force", { fg = colors.html_attr }, config.config.styles.properties),
     ["@punctuation.bracket"] = { fg = colors.bracket or colors.fg },
     ["@punctuation.delimiter"] = { fg = colors.bracket or colors.fg },
     ["@punctuation.special"] = { fg = colors.info },
@@ -902,14 +909,14 @@ function M.setup(colors, config)
     phpDocParam = { fg = colors.class },
     phpDocTags = { fg = colors.comment, bold = true },
     phpException = { fg = colors.string_literal_fg, bg = colors.string_literal_bg },
-    phpFunctions = vim.tbl_extend("force", { fg = colors.func }, config.styles.functions),
+    phpFunctions = vim.tbl_extend("force", { fg = colors.func }, styles.functions),
     phpHereDoc = { fg = colors.string },
     phpIdentifier = { fg = colors.identifier },
     phpInclude = { fg = colors.keyword },
     phpKeyword = { fg = colors.keyword },
     phpMagicConstants = { fg = colors.variable },
     phpMemberSelector = { fg = colors.keyword },
-    phpMethods = vim.tbl_extend("force", { fg = colors.func }, config.styles.functions),
+    phpMethods = vim.tbl_extend("force", { fg = colors.func }, styles.functions),
     phpNowDoc = { fg = colors.string },
     phpOperator = { fg = colors.keyword },
     phpParent = { fg = colors.class },

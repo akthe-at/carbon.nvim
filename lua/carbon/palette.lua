@@ -102,7 +102,7 @@ M.carbon = {
 	pmenu_sel_fg = "#FDF6E3",
 
 	-- Borders and separators
-	border = "#213047",
+	border = "#02858E",
 	win_separator = "#213047",
 
 	-- Accent colors (from IntelliJ version)

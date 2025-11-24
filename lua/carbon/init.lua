@@ -33,7 +33,7 @@ function M.load(opts)
   local colors = palette.setup({ style = style, palette = config.palette })
 
   -- Allow user to customize colors
-  config.on_colors(colors)
+  (config.on_colors or function() end)(colors)
 
   local theme = require("carbon.theme").setup(colors, config)
 

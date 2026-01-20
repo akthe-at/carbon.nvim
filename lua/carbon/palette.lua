@@ -157,7 +157,7 @@ M.carbon_day = {
 	line_nr = "#9BA3AF", -- line number
 	cursor_line_fg = "#2E3440", -- caret line
 	cursor_line_bg = "#C5B5A0", -- caret line background (stronger contrast)
-	cursor = "#D08770", -- cursor block color (salmon accent)
+	cursor = "#0A4F65", -- cursor block color (darker teal for stronger contrast)
 
 	-- Diff colors
 	diff_add_bg = "#D8F0D8", -- diff add background
@@ -329,7 +329,7 @@ M.carbon_day_neutral = {
 	line_nr = "#9BA3AF",
 	cursor_line_fg = "#2E3440",
 	cursor_line_bg = "#E8E8E8",
-	cursor = "#D08770",
+	cursor = "#0A4F65",
 
 	-- Diff colors
 	diff_add_bg = "#E0F5E0",
@@ -413,7 +413,7 @@ M.carbon_day_contrast = {
 	line_nr = "#7B838F",
 	cursor_line_fg = "#000000",
 	cursor_line_bg = "#E0E0E0",
-	cursor = "#B06750",
+	cursor = "#0A4F65",
 
 	-- Diff colors
 	diff_add_bg = "#D0F0D0",

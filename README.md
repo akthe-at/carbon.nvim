@@ -83,7 +83,9 @@ Carbon comes with sensible defaults, but you can customize it:
 
 ```lua
 require("carbon").setup({
-	style = "carbon", -- "carbon" (dark) or "carbon_day" (light)
+	style = "carbon", -- "auto", "carbon", "carbon_contrast", "carbon_day", "carbon_day_neutral", "carbon_day_contrast"
+	dark_variant = "carbon", -- Used when style = "auto"
+	light_variant = "carbon_day", -- Used when style = "auto"
 	transparent = false, -- Enable transparent background
 	terminal_colors = true, -- Enable terminal colors
 	dim_inactive = false, -- Dim inactive windows
@@ -96,6 +98,18 @@ require("carbon").setup({
 		properties = { bold = true },
 	},
 
+	groups = {
+		border = "border",
+		panel = "cursor_line_bg",
+		link = "link",
+		error = "error",
+		warning = "warning",
+		info = "info",
+		hint = "hint",
+		ok = "git_add",
+		todo = "html_tag",
+	},
+
 	-- Override colors
 	on_colors = function(colors)
 		colors.bg = "#1a1a1a"
@@ -105,6 +119,11 @@ require("carbon").setup({
 	on_highlights = function(highlights, colors)
 		highlights.Keyword = { fg = colors.keyword, italic = true }
 	end,
+
+	-- Customize highlights before they are applied
+	before_highlight = function(group, highlight, colors)
+		-- highlight.undercurl = false
+	end,
 })
 
 vim.cmd.colorscheme("carbon")
@@ -112,27 +131,37 @@ vim.cmd.colorscheme("carbon")
 
 ## Theme Variants
 
-Carbon includes both dark and light variants:
+Carbon includes dark, light, and contrast variants:
 
-### Dark Theme (default)
+- `carbon` (default dark)
+- `carbon_contrast` (high contrast dark)
+- `carbon_day` (light)
+- `carbon_day_neutral` (cool neutral light)
+- `carbon_day_contrast` (high contrast light)
 
-```lua
-vim.cmd.colorscheme("carbon")
-```
+The active `colors_name` matches the chosen style (e.g. `carbon-contrast`, `carbon-day-neutral`), so other plugins can detect the exact variant.
 
-### Light Theme
-
-```lua
-vim.cmd.colorscheme("carbon-day")
-```
-
-Or set it via configuration:
+Use `style = "auto"` to follow `vim.o.background`, or set a specific style:
 
 ```lua
 require("carbon").setup({
 	style = "carbon_day",
 })
 vim.cmd.colorscheme("carbon")
+```
+
+Light variants also work with:
+
+```lua
+vim.cmd.colorscheme("carbon-day")
+vim.cmd.colorscheme("carbon-day-neutral")
+vim.cmd.colorscheme("carbon-day-contrast")
+```
+
+Dark variants can also be loaded via:
+
+```lua
+vim.cmd.colorscheme("carbon-contrast")
 ```
 
 ## Lualine Integration

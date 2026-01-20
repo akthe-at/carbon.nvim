@@ -2,8 +2,16 @@
 
 local palette = require("carbon.palette")
 local config = require("carbon.config")
-local style = vim.o.background == "light" and config.STYLES.CARBON_DAY or config.STYLES.CARBON
-local colors = palette.setup({ style = style })
+
+local function resolve_style()
+	local name = (vim.g.colors_name or ""):gsub("-", "_")
+	if name == "" then
+		return config.STYLES.CARBON
+	end
+	return name
+end
+
+local colors = palette.setup({ style = resolve_style() })
 
 return {
 	normal = {
@@ -27,7 +35,7 @@ return {
 		c = { fg = colors.fg, bg = colors.cursor_line_bg },
 	},
 	command = {
-		a = { fg = colors.bg, bg = colors.identifier, gui = "bold" },
+		a = { fg = colors.bg, bg = colors.info, gui = "bold" },
 		b = { fg = colors.fg, bg = colors.cursor_line_bg },
 		c = { fg = colors.fg, bg = colors.cursor_line_bg },
 	},

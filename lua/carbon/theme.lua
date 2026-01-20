@@ -55,6 +55,8 @@ function M.setup(colors, config)
 	local identifier_style = vim.tbl_extend("force", { fg = colors.identifier }, styles.variables)
 	local variable_style = vim.tbl_extend("force", { fg = colors.variable }, styles.variables)
 
+	local cursor_color = colors.cursor or colors.link or colors.keyword or colors.fg
+
 	local theme = {}
 
 	theme.highlights = {
@@ -62,9 +64,11 @@ function M.setup(colors, config)
 		ColorColumn = { bg = panel_bg },
 		Conceal = { fg = colors.comment },
 		CurSearch = { bg = search_bg, fg = search_fg },
-		Cursor = { fg = colors.bg, bg = colors.cursor or colors.fg },
-		lCursor = { fg = colors.bg, bg = colors.cursor or colors.fg },
-		CursorIM = { fg = colors.bg, bg = colors.cursor or colors.fg },
+		Cursor = { fg = colors.bg, bg = cursor_color },
+		lCursor = { fg = colors.bg, bg = cursor_color },
+		CursorIM = { fg = colors.bg, bg = cursor_color },
+		TermCursor = { fg = colors.bg, bg = cursor_color },
+		TermCursorNC = { fg = colors.bg, bg = cursor_color },
 		CursorColumn = { bg = colors.cursor_line_bg },
 		CursorLine = { bg = colors.cursor_line_bg },
 		CursorLineNr = { fg = colors.cursor_line_fg },

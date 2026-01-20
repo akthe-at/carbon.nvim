@@ -33,14 +33,13 @@ function M.load(opts)
     or style == M.config.STYLES.CARBON_DAY_NEUTRAL
     or style == M.config.STYLES.CARBON_DAY_CONTRAST
 
-  -- Set colorscheme name and background based on style
   if is_light then
-    vim.g.colors_name = "carbon-day"
     vim.o.background = "light"
   else
-    vim.g.colors_name = "carbon"
     vim.o.background = "dark"
   end
+
+  vim.g.colors_name = style:gsub("_", "-")
 
   local background_group = vim.api.nvim_create_augroup("CarbonBackground", { clear = true })
   if not is_auto then

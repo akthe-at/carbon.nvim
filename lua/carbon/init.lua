@@ -18,15 +18,44 @@ function M.load(opts)
   vim.o.termguicolors = true
 
   local config = M.config.extend(opts)
-  local style = config.style or "carbon"
+  local style = config.style or M.config.STYLES.CARBON
+  local is_auto = style == M.config.STYLES.AUTO
+
+  if is_auto then
+    if vim.o.background == "light" then
+      style = config.light_variant or M.config.STYLES.CARBON_DAY
+    else
+      style = config.dark_variant or M.config.STYLES.CARBON
+    end
+  end
+
+  local is_light = style == M.config.STYLES.CARBON_DAY
+    or style == M.config.STYLES.CARBON_DAY_NEUTRAL
+    or style == M.config.STYLES.CARBON_DAY_CONTRAST
 
   -- Set colorscheme name and background based on style
-  if style == "carbon_day" then
+  if is_light then
     vim.g.colors_name = "carbon-day"
     vim.o.background = "light"
   else
     vim.g.colors_name = "carbon"
     vim.o.background = "dark"
+  end
+
+  local background_group = vim.api.nvim_create_augroup("CarbonBackground", { clear = true })
+  if not is_auto then
+    vim.api.nvim_create_autocmd({ "BufEnter", "WinEnter" }, {
+      group = background_group,
+      callback = function()
+        if vim.g.colors_name ~= "carbon" and vim.g.colors_name ~= "carbon-day" then
+          return
+        end
+        local target = is_light and "light" or "dark"
+        if vim.o.background ~= target then
+          vim.o.background = target
+        end
+      end,
+    })
   end
 
   local palette = require("carbon.palette")
@@ -38,8 +67,14 @@ function M.load(opts)
 
   local theme = require("carbon.theme").setup(colors, config)
 
+  local before_highlight = config.before_highlight or function() end
+
   -- Apply highlights
   for group, hl in pairs(theme.highlights) do
+    if type(hl) == "table" then
+      before_highlight(group, hl, colors)
+    end
+
     if type(hl) == "string" then
       vim.api.nvim_set_hl(0, group, { link = hl })
     else
@@ -56,7 +91,7 @@ function M.load(opts)
   if vim.v.vim_did_enter == 1 then
     local lualine_ok, lualine = pcall(require, "lualine")
     if lualine_ok then
-      local lualine_theme = style == "carbon_day" and "carbon-day" or "carbon"
+      local lualine_theme = is_light and "carbon-day" or "carbon"
       local lualine_config = require("lualine.config")
       local config_opts = lualine_config.get_config()
       if config_opts and config_opts.options then

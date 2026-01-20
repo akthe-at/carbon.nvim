@@ -1,7 +1,7 @@
 # Carbon Dark theme for Ghostty
 # https://github.com/akthe-at/carbon.nvim
 
-background = 172030
+background = 0d1520
 foreground = bac8cb
 
 # Cursor
@@ -12,7 +12,7 @@ selection-background = 0a677a
 selection-foreground = fdf6e3
 
 # Normal colors
-palette = 0=#172030
+palette = 0=#0d1520
 palette = 1=#db6e89
 palette = 2=#57a464
 palette = 3=#ffae8f

@@ -1,0 +1,32 @@
+{
+  "name": "carbon-theme",
+  "displayName": "Carbon",
+  "description": "Carbon color themes for VS Code",
+  "version": "0.0.1",
+  "publisher": "akthe-at",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "Carbon",
+        "uiTheme": "vs-dark",
+        "path": "./themes/carbon.json"
+      },
+      {
+        "label": "Carbon Contrast",
+        "uiTheme": "vs-dark",
+        "path": "./themes/carbon-contrast.json"
+      },
+      {
+        "label": "Carbon Day",
+        "uiTheme": "vs",
+        "path": "./themes/carbon-day.json"
+      }
+    ]
+  }
+}

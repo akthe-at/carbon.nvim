@@ -41,22 +41,6 @@ function M.load(opts)
 
   vim.g.colors_name = style:gsub("_", "-")
 
-  local background_group = vim.api.nvim_create_augroup("CarbonBackground", { clear = true })
-  if not is_auto then
-    vim.api.nvim_create_autocmd({ "BufEnter", "WinEnter" }, {
-      group = background_group,
-      callback = function()
-        if vim.g.colors_name ~= "carbon" and vim.g.colors_name ~= "carbon-day" then
-          return
-        end
-        local target = is_light and "light" or "dark"
-        if vim.o.background ~= target then
-          vim.o.background = target
-        end
-      end,
-    })
-  end
-
   local palette = require("carbon.palette")
   local colors = palette.setup({ style = style, palette = config.palette })
 
@@ -86,19 +70,11 @@ function M.load(opts)
     M.terminal(colors)
   end
 
-  -- Auto-switch lualine theme if lualine is loaded (only after VimEnter)
-  if vim.v.vim_did_enter == 1 then
-    local lualine_ok, lualine = pcall(require, "lualine")
-    if lualine_ok then
-      local lualine_theme = is_light and "carbon-day" or "carbon"
-      local lualine_config = require("lualine.config")
-      local config_opts = lualine_config.get_config()
-      if config_opts and config_opts.options then
-        config_opts.options.theme = lualine_theme
-        lualine.setup(config_opts)
-      end
-    end
-  end
+  -- Lualine owns its ColorScheme refresh and the user's selected theme.
+  -- Clear our cached palettes so explicit Carbon themes resolve the new variant.
+  package.loaded["lualine.themes.carbon"] = nil
+  package.loaded["lualine.themes.carbon-day"] = nil
+
 end
 
 ---Set terminal colors

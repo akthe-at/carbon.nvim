@@ -20,6 +20,88 @@ This is a rewrite of [michaeldyrynda/carbon.vim](https://github.com/michaeldyryn
 - Customizable colors and highlight groups
 - Terminal colors support
 
+## Palette design
+
+Carbon retains its IntelliJ-inspired blue dark background, teal strings, pink
+keywords, and peach functions. Light variants darken those accents for their
+paper backgrounds rather than reusing dark-theme RGB values.
+
+- Body text leads; comments and ordinary punctuation sit below it in emphasis.
+- Errors use a distinct red, warnings use ochre, and information uses cool blue/teal.
+  Warning colors are separate from peach function and tag colors.
+- Operators and ordinary delimiters share a muted foreground across legacy
+  syntax, Treesitter, and LSP tokens. Keyword operators and markup keep their
+  structural emphasis.
+- Search uses the yellow accent, distinct from selection; the current match adds
+  bold and underline. Selection sets a readable foreground. Virtual diagnostics
+  use the main background to avoid tint-induced contrast loss.
+- Borders sit below body text in contrast. Cursor lines and popups use nearby
+  surface tones; selections and diffs retain their own emphasis.
+- Error, warning, and function foregrounds meet 4.5:1 against the main background,
+  cursor line, and popup in all five bundled palettes. This is a targeted design
+  constraint, not an accessibility claim for every highlight or custom palette.
+
+[Cendre's measured hierarchy](https://cendretheme.com/) and its
+[source and tests](https://github.com/Aejkatappaja/cendre) inspired these refinements; Carbon keeps its own
+palette and supports both dark and light backgrounds. Color roles should remain
+recognizable without bold or italic. Transparency and custom colors change the
+contrast relationships, so the bundled measurements apply to opaque defaults.
+
+Run the applied-highlight and palette checks with:
+
+```sh
+nvim --headless -u NONE -l test/highlights.lua
+```
+
+### Preview and generated terminal themes
+
+Open a disposable preview buffer with syntax, diagnostics, diff lines, search,
+selection instructions, and a completion example:
+
+```sh
+nvim -u NONE -c 'set rtp+=.' -c 'luafile scripts/preview.lua'
+```
+
+Use `:colorscheme carbon-day`, `carbon-contrast`, `carbon-day-neutral`, or
+`carbon-day-contrast` to compare variants. The fixture does not modify files.
+
+Regenerate all five Ghostty themes after palette edits, or check for drift:
+
+```sh
+nvim --headless -u NONE -l scripts/ghostty.lua
+nvim --headless -u NONE -l scripts/ghostty.lua --check
+```
+
+The generator uses the same ANSI mapping as Neovim's terminal. Generated files
+contain bundled defaults; custom `on_colors` changes are local to Neovim.
+
+The contrast audit also checks links, hints, constants, inactive text, git colors,
+strings, numbers, and parameters at 4.5:1 on main, cursor-line, and popup surfaces;
+comments use a quieter 3:1 floor. Selected completion details use the selected
+foreground for readability.
+
+Carbon leaves lualine configuration to you. Use lualine's `theme = "auto"` for
+colorscheme switching, or an explicit Carbon theme. Carbon no longer changes
+lualine options or enforces a background when entering windows. `carbon-auto`
+resolves the variant from `background` when loaded.
+
+## Regular Vim
+
+Standalone Vimscript themes are in `extras/vim/`; they need no Lua or Neovim.
+Copy the variants you want into Vim's colors directory:
+
+```sh
+mkdir -p ~/.vim/colors
+cp extras/vim/carbon*.vim ~/.vim/colors/
+```
+
+Then select one in `.vimrc` with `colorscheme carbon`, `carbon-day`,
+`carbon-contrast`, `carbon-day-neutral`, or `carbon-day-contrast`. These files
+contain the shared palette's core syntax, editor, search, diff, and diagnostic
+highlights. They are generated from `lua/carbon/palette.lua`; regenerate them
+with `nvim --headless -u NONE -l scripts/vim-colors.lua` when the palette changes.
+The standalone files themselves run in regular Vim without Neovim.
+
 ## Requirements
 
 - Neovim >= 0.8.0
@@ -269,3 +351,22 @@ Carbon includes highlight groups for popular plugins:
 [Apache License 2.0](LICENSE)
 
 See [NOTICE](NOTICE) for attribution details.
+
+### Measured role and surface hierarchy
+
+Types, interfaces, aliases, and constructors share the cool blue `class` role.
+Fields and parameters share muted peach; ordinary variables stay neutral across
+both dark variants. Documentation comments follow the comment role. Properties
+have no bold requirement by default.
+
+Panels and floats have dedicated `panel_bg` and `float_bg` colors. Override
+`groups.panel` to give both surfaces a custom shared background. Matching brackets
+use body text over `match_bg`. Changed diff text has a readable blue foreground.
+The checks cover core syntax on panels, floats, and all three diff backgrounds,
+plus matching brackets and type-role consistency. Errors stay at least 0.08 in
+Euclidean OKLab distance from the eight core syntax roles; this is a design
+constraint, not a color-vision accessibility guarantee.
+
+Regenerate the five-variant comparison with `python scripts/palette-preview.py`
+and open `previews/palette.html`. The swatches show opaque defaults; inspect real
+language captures with `scripts/preview.lua` and Neovim's `:Inspect` as well.

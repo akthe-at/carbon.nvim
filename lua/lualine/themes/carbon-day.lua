@@ -15,7 +15,7 @@ local colors = palette.setup({ style = resolve_style() })
 
 return {
 	normal = {
-		a = { fg = colors.bg, bg = colors.selection, gui = "bold" },
+		a = { fg = colors.fg, bg = colors.selection, gui = "bold" },
 		b = { fg = colors.fg, bg = colors.cursor_line_bg },
 		c = { fg = colors.fg, bg = colors.cursor_line_bg },
 	},

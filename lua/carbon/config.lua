@@ -67,11 +67,11 @@ M.defaults = {
 		keywords = {},
 		functions = { bold = true },
 		variables = {},
-		properties = { bold = true },
+		properties = {},
 	},
 	groups = {
 		border = "border",
-		panel = "cursor_line_bg",
+		panel = "panel_bg",
 		link = "link",
 		error = "error",
 		warning = "warning",

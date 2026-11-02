@@ -44,7 +44,7 @@ local function hi(group, spec, c)
   local fields = {}
   if fg then fields[#fields+1] = 'guifg=' .. fg end
   if bg then fields[#fields+1] = 'guibg=' .. bg end
-  if attr then fields[#fields+1] = 'gui=' .. attr end
+  if attr and attr ~= '' then fields[#fields+1] = 'gui=' .. attr end
   return 'hi ' .. group .. ' ' .. table.concat(fields, ' ')
 end
 for _, style in ipairs(styles) do

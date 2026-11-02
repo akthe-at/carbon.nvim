@@ -5,25 +5,6 @@ if exists("syntax_on") | syntax reset | endif
 let g:colors_name = "carbon-day"
 if !has("gui_running") && &t_Co < 256 | finish | endif
 
-hi DiffAdd guibg=#F2FFF2
-hi DiffDelete guibg=#FFFBFB
-hi DiffChange guibg=#FFFDDD
-hi DiffText guifg=#3366A0 guibg=#FFFDDD gui=bold
-hi Todo guifg=#F0E0D0 guibg=#76520F gui=bold
-hi SpellBad gui=undercurl
-hi Normal guifg=#2E3440 guibg=#F0E0D0
-hi SpellLocal gui=undercurl
-hi SpellRare gui=undercurl
-hi NormalFloat guifg=#2E3440 guibg=#FFFCEE
-hi CursorLine guibg=#E8D8C8
-hi CursorLineNr guifg=#2E3440 guibg=#E8D8C8
-hi LineNr guifg=#9BA3AF guibg=#F0E0D0
-hi SignColumn guifg=#096778 guibg=#F0E0D0
-hi VertSplit guifg=#A29385 guibg=#F0E0D0
-hi WinSeparator guifg=#A29385 guibg=#F0E0D0
-hi StatusLine guifg=#2E3440 guibg=#FFFCEC
-hi StatusLineNC guifg=#777a80 guibg=#FFFCEC
-hi TabLine guifg=#777a80 guibg=#FFFCEC
 hi TabLineFill guibg=#FFFCEC
 hi TabLineSel guifg=#2E3440 guibg=#F0E0D0 gui=bold
 hi Pmenu guifg=#2E3440 guibg=#E5D5C5
@@ -33,9 +14,7 @@ hi PmenuThumb guibg=#A29385
 hi Visual guibg=#D5C5B5
 hi Search guifg=#F0E0D0 guibg=#FFE0A0
 hi IncSearch guifg=#F0E0D0 guibg=#FFE0A0 gui=bold,underline
-hi SpellCap gui=undercurl
 hi MatchParen guifg=#2E3440 guibg=#D5C5B5 gui=bold
-hi WarningMsg guifg=#76520F
 hi Folded guifg=#777a80 guibg=#FFFCEC
 hi NonText guifg=#777a80
 hi SpecialKey guifg=#777a80
@@ -49,24 +28,28 @@ hi ModeMsg guifg=#2E3440 gui=bold
 hi MoreMsg guifg=#0A7285
 hi Question guifg=#0A7285
 hi ErrorMsg guifg=#B50000 guibg=#F0E0D0 gui=bold
+hi DiffAdd guibg=#F2FFF2
+hi DiffDelete guibg=#FFFBFB
+hi DiffChange guibg=#FFFDDD
+hi DiffText guifg=#3366A0 guibg=#FFFDDD gui=bold
+hi Todo guifg=#F0E0D0 guibg=#76520F gui=bold
+hi SpellBad gui=undercurl
+hi SpellCap gui=undercurl
+hi SpellLocal gui=undercurl
+hi SpellRare gui=undercurl
+hi CursorLine guibg=#E8D8C8
+hi CursorLineNr guifg=#2E3440 guibg=#E8D8C8
+hi LineNr guifg=#9BA3AF guibg=#F0E0D0
+hi WarningMsg guifg=#76520F
+hi SignColumn guifg=#096778 guibg=#F0E0D0
+hi VertSplit guifg=#A29385 guibg=#F0E0D0
+hi Normal guifg=#2E3440 guibg=#F0E0D0
+hi WinSeparator guifg=#A29385 guibg=#F0E0D0
+hi StatusLine guifg=#2E3440 guibg=#FFFCEC
+hi NormalFloat guifg=#2E3440 guibg=#FFFCEE
+hi StatusLineNC guifg=#777a80 guibg=#FFFCEC
+hi TabLine guifg=#777a80 guibg=#FFFCEC
 
-hi SpecialComment guifg=#777a80 gui=italic
-hi Debug guifg=#B50000
-hi Underlined guifg=#096778 gui=underline
-hi Error guifg=#B50000
-hi Comment guifg=#777a80 gui=italic
-hi Constant guifg=#7B5E99 gui=
-hi String guifg=#326666
-hi Character guifg=#326666
-hi Number guifg=#8d4e2a
-hi Boolean guifg=#C04D6B
-hi Float guifg=#8d4e2a
-hi Identifier guifg=#7B5E99
-hi Function guifg=#8C4535
-hi Statement guifg=#C04D6B
-hi Conditional guifg=#C04D6B
-hi Repeat guifg=#C04D6B
-hi Label guifg=#C04D6B
 hi Operator guifg=#656874
 hi Keyword guifg=#C04D6B
 hi Exception guifg=#C04D6B
@@ -83,6 +66,23 @@ hi Special guifg=#9E5E8A
 hi SpecialChar guifg=#326666
 hi Tag guifg=#8C4535
 hi Delimiter guifg=#656874
+hi SpecialComment guifg=#777a80 gui=italic
+hi Debug guifg=#B50000
+hi Underlined guifg=#096778 gui=underline
+hi Error guifg=#B50000
+hi Comment guifg=#777a80 gui=italic
+hi Constant guifg=#7B5E99
+hi String guifg=#326666
+hi Character guifg=#326666
+hi Number guifg=#8d4e2a
+hi Boolean guifg=#C04D6B
+hi Float guifg=#8d4e2a
+hi Identifier guifg=#7B5E99
+hi Function guifg=#8C4535
+hi Statement guifg=#C04D6B
+hi Conditional guifg=#C04D6B
+hi Repeat guifg=#C04D6B
+hi Label guifg=#C04D6B
 hi markdownCode guifg=#326666
 hi markdownCodeBlock guifg=#326666
 
